@@ -19,7 +19,8 @@ export let
     field_getLetter = document.getElementById("getLetter"),
     text_info = document.getElementById("info"),
     progress,
-    remainingLetters,
+    remainingLetters = [],
+    spaces = "",
     attmepss,
     hidden_word,
     openLetters,
@@ -61,8 +62,16 @@ export function checkLetter() {
 
 export function makeWord() {
     hidden_word = words[Math.floor(Math.random() * words.length)].toUpperCase();
-    progress = hidden_word[0] + "____" + hidden_word[5];
-    remainingLetters = hidden_word[1] + hidden_word[2] + hidden_word[3] + hidden_word[4];
+    spaces = "";
+    for(let i = 0; i < hidden_word.length-2; i++) {
+        spaces += "_";
+    }
+    remainingLetters = [];
+    progress = hidden_word[0] + spaces + hidden_word[hidden_word.length-1];
+    for(let i = 0; i < hidden_word.length-2; i++) {
+        remainingLetters += hidden_word[i + 1];
+    }
+    console.log(remainingLetters);
     attmepss = 6;
     openLetters = 0;
     hangman(6, progress);

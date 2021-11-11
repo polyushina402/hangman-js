@@ -30,10 +30,10 @@ export function hangman(count, text){
     ctx.moveTo(50,100);
     ctx.lineTo(50,50);
     ctx.lineTo(200,50);
-    ctx.lineTo(200,450);
-    ctx.lineTo(50,450);
-    ctx.lineTo(50,400);
     ctx.lineTo(200,400);
+    // ctx.lineTo(50,450);
+    // ctx.lineTo(50,400);
+    ctx.lineTo(50,400);
     ctx.stroke();
     ctx.font = "20pt Arial";
     ctx.fillText(text, 55, 435);
